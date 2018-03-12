@@ -28,21 +28,22 @@
 				height: auto;
 			}
 
-			@media only screen and (orientation:portrait) {
-			  #container {
-				-ms-transform: rotate(-90deg); /* IE 9 */
-				-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
-				transform: rotate(-90deg);
-				width: /* screen width */ ;
-				height: /* screen height */ ;
-				overflow: scroll;
-			  }
+			#warning-message { display: none; }
+			@media only screen and (orientation:portrait){
+				#wrapper { display:none; }
+				#warning-message { display:block; }
+			}
+			@media only screen and (orientation:landscape){
+				#warning-message { display:none; }
 			}
     </style>
   </head>
 
   <body>
-	<div id="container">
+	<div id="warning-message" style='background-color:red;width:100%;height:100%:font-size:3em'>
+		Please rotate your screen in <b>landscape</b> mode.
+	</div>
+	<div id="wrapper">
     <!--<img usemap="#image-map" src="image-map-all.png">
     <map name="image-map">
         <area shape="poly" alt="blue" title="blue" onclick="selectRegion('blue')"
