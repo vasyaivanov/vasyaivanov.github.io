@@ -8,30 +8,40 @@
     <title>Intellectual Casino - San Francisco</title>
     <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <style>
-          html, body {
+		html, body {
                 height: 100%;
                 width: 100%;
                 margin: 0;
                 padding: 0;
                 background-color: black;
               }
-             #main-flyer {
+        #main-flyer {
                 height: 100%;
                 width: 100%;
               margin: 0;
               padding: 0;
              }
-    h1 { margin:150px auto 30px auto; font-family:'Roboto';margin-left:5em;}
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
+			h1 { margin:150px auto 30px auto; font-family:'Roboto';margin-left:5em;}
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+			@media screen and (orientation:landscape) {
+
+		  #container {
+			-ms-transform: rotate(-90deg); /* IE 9 */
+			-webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+			transform: rotate(-90deg);
+			width: /* screen width */ ;
+			height: /* screen height */ ;
+			overflow: scroll;
+		  }
     </style>
   </head>
 
   <body>
-
+	<div id="container">
     <!--<img usemap="#image-map" src="image-map-all.png">
     <map name="image-map">
         <area shape="poly" alt="blue" title="blue" onclick="selectRegion('blue')"
@@ -88,5 +98,6 @@
       })();
 
     </script>
+	</div>
   </body>
 </html>
