@@ -26,6 +26,11 @@
   form.addEventListener('submit', e => {
     e.preventDefault();
     
+    var success = false;
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => sucess=true)
+      .catch(error => console.error('Error!', error.message)); 
+    
     function clearFormFieldsExceptEmailAndName() {
         var elements = document.forms['submit-to-google-sheet'].elements;
         for (var i = 0, element; element = elements[i++];) {
@@ -36,10 +41,7 @@
           }
       }
       clearFormFieldsExceptEmailAndName();
-    
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => document.getElementById("q1").value="Success!")
-      .catch(error => console.error('Error!', error.message));   
+      document.getElementById("q1").value="Success!"
 
   })
 </script>
