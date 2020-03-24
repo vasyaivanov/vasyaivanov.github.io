@@ -9,7 +9,7 @@
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbx1vZ9jmZdZtpynQ6GNi01a-aZU7b-Ya04SAyS4o6KB77yhXIw/exec'
   const form = document.forms['submit-to-google-sheet'];
-  var q1 = form.getElementById("q1");
+  var q1 = document.getElementById("q1");
   q1 = "Success";
 
   form.addEventListener('submit', e => {
