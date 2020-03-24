@@ -1,7 +1,7 @@
 <form name="submit-to-google-sheet">
   <input name="email" id="email" type="email" placeholder="Email" required><br/> 
   <input name="teamName" id="teamName" type="text" placeholder="Team Name" required><br/>
-  <button type="submit">Submit Questions</button> 
+  <button type="submit">Submit Questions</button> <br/>
   <input name="q1" id="q1" type="text" placeholder="Ответ 1"><br/>
   <input name="q2" id="q2" type="text" placeholder="Ответ 2"><br/>
 </form>
@@ -11,22 +11,23 @@
   const form = document.forms['submit-to-google-sheet'];
   // document.getElementById("q1").value="Success!";
   
-  function clearFormFieldsExceptEmailAndName() {
-  var elements = document.forms['submit-to-google-sheet'].elements;
 
-  for (var i = 0, element; element = elements[i++];) {
-        if (element.type === "text" && element.id != "email" && element.id != "teamName") {
-          element.value="";         
-          console.log("it's an empty textfield");
-        }
-    }
-  }
-  clearFormFieldsExceptEmailAndName();
   
   form.addEventListener('submit', e => {
-    e.preventDefault()
+    e.preventDefault();
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => document.getElementById("q1").value="Success!")
-      .catch(error => console.error('Error!', error.message))
+      .catch(error => console.error('Error!', error.message));
+    
+      function clearFormFieldsExceptEmailAndName() {
+      var elements = document.forms['submit-to-google-sheet'].elements;
+      for (var i = 0, element; element = elements[i++];) {
+          if (element.type === "text" && element.id != "email" && element.id != "teamName") {
+            element.value="";         
+            console.log("it's an empty textfield");
+            }
+        }
+      }
+      clearFormFieldsExceptEmailAndName();
   })
 </script>
