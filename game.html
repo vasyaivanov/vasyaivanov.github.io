@@ -96,6 +96,7 @@
 			margin-top: 10px;
 			margin-left: 40%;
 			line-height: .8em;
+			cursor: pointer;
 	}
 
 
@@ -142,9 +143,10 @@
 		
 		var success = false;
 		fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-		  .then(response => sucess=true)
+		  .then(response => document.getElementById("q1").value="Success!")
 		  .catch(error => console.error('Error!', error.message)); 
 		
+		/*
 		function clearFormFieldsExceptEmailAndName() {
 			var elements = document.forms['submit-to-google-sheet'].elements;
 			for (var i = 0, element; element = elements[i++];) {
@@ -157,7 +159,12 @@
 		  //clearFormFieldsExceptEmailAndName();
 		  if(success) {
 			document.getElementById("q1").value="Success!";
-		}
+			} */
+			
+		function submitForm()
+		 {
+			  document.forms['submit-to-google-sheet'].submit();
+		 }
 
 	  })
 </script>
@@ -175,7 +182,7 @@
 									<input class="topName" id="email" name="email" type="email" />
 							</p>							
 							<p class="wipeout">
-									<input type="submit" value="Ответить" />
+									<input type="submit" value="Ответить"  onclick="submitForm()"/>
 							</p>
 														<p>
 									<label>Разминка 1: </label>
