@@ -4,6 +4,16 @@
   <button type="submit">Submit Questions</button> <br/>
   <input name="q1" id="q1" type="text" placeholder="Ответ 1"><br/>
   <input name="q2" id="q2" type="text" placeholder="Ответ 2"><br/>
+  <input name="q3" id="q3" type="text" placeholder="Ответ 3"><br/>
+  <input name="q4" id="q4" type="text" placeholder="Ответ 4"><br/>
+  <input name="q5" id="q5" type="text" placeholder="Ответ 5"><br/>
+  <input name="q6" id="q6" type="text" placeholder="Ответ 6"><br/>
+  <input name="q7" id="q7" type="text" placeholder="Ответ 7"><br/>
+  <input name="q8" id="q8" type="text" placeholder="Ответ 8"><br/>
+  <input name="q9" id="q9" type="text" placeholder="Ответ 9"><br/>
+  <input name="q10" id="q10" type="text" placeholder="Ответ 10"><br/>
+  <input name="q11" id="q11" type="text" placeholder="Ответ 11"><br/>
+  <input name="q12" id="q12" type="text" placeholder="Ответ 12"><br/>
 </form>
 
 <script>
@@ -15,19 +25,21 @@
   
   form.addEventListener('submit', e => {
     e.preventDefault();
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => document.getElementById("q1").value="Success!")
-      .catch(error => console.error('Error!', error.message));
     
-      function clearFormFieldsExceptEmailAndName() {
-      var elements = document.forms['submit-to-google-sheet'].elements;
-      for (var i = 0, element; element = elements[i++];) {
-          if (element.type === "text" && element.id != "email" && element.id != "teamName") {
-            element.value="";         
-            console.log("it's an empty textfield");
-            }
-        }
+    function clearFormFieldsExceptEmailAndName() {
+        var elements = document.forms['submit-to-google-sheet'].elements;
+        for (var i = 0, element; element = elements[i++];) {
+            if (element.type === "text" && element.id != "email" && element.id != "teamName") {
+              element.value="";         
+              console.log("it's an empty textfield");
+              }
+          }
       }
       clearFormFieldsExceptEmailAndName();
+    
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => document.getElementById("q1").value="Success!")
+      .catch(error => console.error('Error!', error.message));   
+
   })
 </script>
