@@ -9,9 +9,18 @@
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbx1vZ9jmZdZtpynQ6GNi01a-aZU7b-Ya04SAyS4o6KB77yhXIw/exec'
   const form = document.forms['submit-to-google-sheet'];
-  var q1 = document.getElementById("q1");
-  q1 = "Success";
+  document.getElementById("q1").value="Success!";
+  
+  function clearFormFieldsExceptEmailAndName() {
+    var elements = document.getElementById("submit-to-google-sheet").elements;
 
+    for (var i = 0, element; element = elements[i++];) {
+        if (element.type === "text" && element.value === "")
+            console.log("it's an empty textfield")
+    }
+  }
+  clearFormFieldsExceptEmailAndName();
+  
   form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
