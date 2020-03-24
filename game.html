@@ -132,7 +132,37 @@
 
 
 <script>
-	  const scriptURL = 'https://script.google.com/macros/s/AKfycbx1vZ9jmZdZtpynQ6GNi01a-aZU7b-Ya04SAyS4o6KB77yhXIw/exec'
+	  
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbx1vZ9jmZdZtpynQ6GNi01a-aZU7b-Ya04SAyS4o6KB77yhXIw/exec'
+  const form = document.forms['submit-to-google-sheet'];
+  // document.getElementById("q1").value="Success!";
+  
+
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    var success = false;
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => sucess=true)
+      .catch(error => console.error('Error!', error.message)); 
+    
+    function clearFormFieldsExceptEmailAndName() {
+        var elements = document.forms['submit-to-google-sheet'].elements;
+        for (var i = 0, element; element = elements[i++];) {
+            if (element.type === "text" && element.id != "email" && element.id != "teamName") {
+              element.value="";         
+              console.log("it's an empty textfield");
+              }
+          }
+      }
+      clearFormFieldsExceptEmailAndName();
+      document.getElementById("q1").value="Success!"
+
+  })
+	
+	/*
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbx1vZ9jmZdZtpynQ6GNi01a-aZU7b-Ya04SAyS4o6KB77yhXIw/exec'
 	  const form = document.forms['submit-to-google-sheet'];
 	  // document.getElementById("q1").value="Success!";
 	  
@@ -167,6 +197,7 @@
 		 }
 
 	  })
+	*/
 </script>
 
 <body>
@@ -182,7 +213,8 @@
 									<input class="topName" id="email" name="email" type="email" />
 							</p>							
 							<p class="wipeout">
-									<input type="submit" value="Ответить"  onclick="submitForm()"/>
+									<button type="submit">Ответить</button> <br/>
+									<!--<input type="submit" value="Ответить"  onclick="submitForm()"/>-->
 							</p>
 														<p>
 									<label>Разминка 1: </label>
