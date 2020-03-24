@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="shortcut icon" type="image/png" href="owl_favicon.png"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Intellectual Casino - San Francisco and Bay Area</title>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <style>
+		html, body {
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                background-color: black;
+              }
+        #main-flyer {
+                height: 100%;
+                width: 100%;
+              margin: 0;
+              padding: 0;
+             }
+			h1 { margin:150px auto 30px auto; font-family:'Roboto';margin-left:5em;}
+			img {
+				display: block;
+				max-width: 100%;
+				height: auto;
+			}
+
+			#warning-message { display: none; }
+			@media only screen and (orientation:portrait){
+				#wrapper { display:none; }
+				#warning-message { display:block; }
+			}
+			@media only screen and (orientation:landscape){
+				#warning-message { display:none; }
+			}
+    </style>
+  </head>
+
+  <body>
+	<div id="warning-message" style='background-color:red;width:100%;font-size:2em;position:absolute;top:25%'>
+		Please rotate your screen to a <b>landscape</b> mode.
+	</div>
+	<div id="wrapper">
+    <!--<img usemap="#image-map" src="image-map-all.png">
+    <map name="image-map">
+        <area shape="poly" alt="blue" title="blue" onclick="selectRegion('blue')"
+              coords="28,27,283,27,324,101,285,175,27,175">
+        <area shape="poly" alt="yellow" title="yellow" onclick="selectRegion('yellow')"
+              coords="286,27,543,27,583,101,542,176,286,175,324,101">
+        <area shape="poly" alt="pink" title="pink" onclick="selectRegion('pink')"
+              coords="545,28,801,27,840,100,801,175,544,175,582,101">
+        <area shape="poly" alt="orange" title="orange" onclick="selectRegion('orange')"
+              coords="802,27,1096,27,1096,174,802,174,838,101">
+    </map>-->
+
+      <img id="main-flyer" src="IntellectualCasino_May2018_WEBSITE.jpg" usemap="#image-map">
+
+      <map name="image-map">
+          <area target="" target="_new" alt="Билеты" title="Билеты" href="https://intellectualcasino.eventbrite.com?discount=EARLYBIRD" coords="113,411,407,507" shape="rect">
+          <area target="" alt="Регистрация Команды" title="Регистрация Команды" href="faq.html#teams" coords="112,532,414,642" shape="rect">
+          <area target="" alt="Инфо Для Зрителей" title="Инфо Для Зрителей" href="faq.html#audience" coords="117,665,412,777" shape="rect">
+          <area target="" alt="Правила Игры" title="Правила Игры" href="faq.html#rules" coords="1466,410,1833,527" shape="rect">
+          <area target="" alt="Дресс Код" title="Дресс Код" href="faq.html#dresscode" coords="1469,560,1842,658" shape="rect">
+          <area target="" alt="Фото Прошлых Игр" title="Фото Прошлых Игр" href="photo/index.html" coords="1457,689,1864,794" shape="rect">
+          <area target="" target="_new" alt="Борис Бурда" title="Борис Бурда" href="https://ru.wikipedia.org/wiki/%D0%91%D1%83%D1%80%D0%B4%D0%B0,_%D0%91%D0%BE%D1%80%D0%B8%D1%81_%D0%9E%D1%81%D0%BA%D0%B0%D1%80%D0%BE%D0%B2%D0%B8%D1%87" coords="1471,166,1764,234" shape="rect">
+           <area target="" target="_new" alt="Интеллектуальное Казино на Фейсбуке" title="Интеллектуальное Казино на Фейсбуке" href="http://www.facebook.com/djwizard" coords="945,244,156" shape="circle">
+          <area target="" target="_new" alt="Джаз Оркестр Фила Лоренса" title="Джаз Оркестр Фила Лоренса" href="http://www.fillorenz.com/" coords="14,163,575,219" shape="rect">
+          <area target="" target="_new" alt="Инна Друзь" title="Инна Друзь" href="https://ru.wikipedia.org/wiki/%D0%94%D1%80%D1%83%D0%B7%D1%8C,_%D0%98%D0%BD%D0%BD%D0%B0_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D0%BD%D0%B0" coords="1481,239,1762,297" shape="rect">
+
+      </map>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <script src="image-map.js"></script>
+    <script>
+        $(function () {
+            ImageMap('img[usemap]');
+        });
+        function selectRegion(region) {
+            document.querySelector("img").setAttribute('src', 'image-map-' + region + '.png');
+        }
+        function regionClicked(region) {
+          alert("JD: region clicked is = " + region);
+        }
+    </script>
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36251023-1']);
+      _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+	</div>
+  </body>
+</html>

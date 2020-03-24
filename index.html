@@ -1,105 +1,290 @@
-<!doctype html>
 <html>
-  <head>
-    <link rel="shortcut icon" type="image/png" href="owl_favicon.png"/>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Intellectual Casino - San Francisco and Bay Area</title>
-    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-    <style>
-		html, body {
-                height: 100%;
-                width: 100%;
-                margin: 0;
-                padding: 0;
-                background-color: black;
-              }
-        #main-flyer {
-                height: 100%;
-                width: 100%;
-              margin: 0;
-              padding: 0;
-             }
-			h1 { margin:150px auto 30px auto; font-family:'Roboto';margin-left:5em;}
-			img {
-				display: block;
-				max-width: 100%;
-				height: auto;
-			}
 
-			#warning-message { display: none; }
-			@media only screen and (orientation:portrait){
-				#wrapper { display:none; }
-				#warning-message { display:block; }
-			}
-			@media only screen and (orientation:landscape){
-				#warning-message { display:none; }
-			}
-    </style>
-  </head>
+<style>
 
-  <body>
-	<div id="warning-message" style='background-color:red;width:100%;font-size:2em;position:absolute;top:25%'>
-		Please rotate your screen to a <b>landscape</b> mode.
+	body {
+			height: 100%;
+			background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg) center center fixed;
+			background-size: cover;
+	}
+
+	.shade {
+			overflow: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background-image: linear-gradient( 150deg, rgba(0, 0, 0, 0.65), transparent);
+	}
+
+	.blackboard {
+			position: relative;
+			width: 90%;
+			margin: 7% auto;
+			border: tan solid 12px;
+			border-top: #bda27e solid 12px;
+			border-left: #b19876 solid 12px;
+			border-bottom: #c9ad86 solid 12px;
+			box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+			background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1));
+			background-color: #333;
+	}
+
+	.blackboard:before {
+			box-sizing: border-box;
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: linear-gradient( 175deg, transparent, transparent 40px, rgba(120, 120, 120, 0.1) 100px, rgba(120, 120, 120, 0.1) 110px, transparent 220px, transparent), linear-gradient( 200deg, transparent 80%, rgba(50, 50, 50, 0.3)), radial-gradient( ellipse at right bottom, transparent, transparent 200px, rgba(80, 80, 80, 0.1) 260px, rgba(80, 80, 80, 0.1) 320px, transparent 400px, transparent);
+			border: #2c2c2c solid 2px;
+			/* content: "Contact Us"; */
+			font-family: 'Permanent Marker', cursive;
+			font-size: 2.2em;
+			color: rgba(238, 238, 238, 0.7);
+			text-align: center;
+			padding-top: 20px;
+	}
+
+	.form {
+			padding: 10px 10px 10px
+	}
+
+	p {
+			position: relative;
+			margin-bottom: 0.05em;
+			margin-top: 0em;
+	}
+
+	label {
+			vertical-align: middle;
+			font-family: 'Permanent Marker', cursive;
+			font-size: 1.3em;
+			color: rgba(238, 238, 238, 0.7);
+	}
+
+	p:nth-of-type(5) > label {
+			vertical-align: top;
+	}
+
+	input,
+	textarea {
+			vertical-align: middle;
+			padding-left: 10px;
+			background: none;
+			border: none;
+			border-bottom: black;
+			border-bottom-style: dashed;
+			font-family: 'Permanent Marker', cursive;
+			font-size: 1.2em;
+			color: rgba(238, 238, 238, 0.8);
+			line-height: .6em;
+			outline: none;
+			width: 60%;
+	}
+
+	textarea {
+			height: 120px;
+			font-size: 1.4em;
+			line-height: 1em;
+			resize: none;
+	}
+
+	input[type="submit"] {
+			color: rgba(57, 181, 97, 0.7);
+			border-bottom: none;
+			margin-top: 10px;
+			margin-left: 14%;
+			line-height: .8em;
+			cursor: pointer;
+	}
+
+
+	::-moz-selection {
+			background: rgba(238, 238, 238, 0.2);
+			color: rgba(238, 238, 238, 0.2);
+			text-shadow: none;
+	}
+
+	::selection {
+			background: rgba(238, 238, 238, 0.4);
+			color: rgba(238, 238, 238, 0.3);
+			text-shadow: none;
+	}
+		
+
+	.topP {		
+		margin-left:40%;
+		margin-bottom: 0.05em;
+		margin-top: 0em;
+	}
+	.topLabel {	
+		font-size: 1.0em;	
+		color: #d9d9d9;
+	}
+	.topName {
+		font-size: 1.0em;
+		/* border-bottom: none; */
+		color: #d9d9d9;
+		width: 30%;
+	}
+	#notificationMessage{
+		font-size: 1.2em;
+		color: #16e416;
+		font-family: 'Permanent Marker', cursive;
+	}
+	#pageTitle{
+		color: white;
+		font-size: 1.6em;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		top: 0.5em;;
+	}	
+	
+	#pageSubtitle{
+		color: white;
+		font-size: 1.6em;
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		top: 1.5em;
+	}
+	
+	#email{
+		width: 32.5%
+	}
+	
+	#chtoGdeKogdaLogo{
+	    float: left;
+		position: absolute;
+		top: 0.5em;
+		left: 3em;
+	}
+	
+	#stanfordLogo{
+		float: left;
+		position: absolute;
+		top: 0.6em;
+		left: 8em;
+		opacity: 60%;
+	}
+}
+	
+</style>
+
+
+<body>
+	<div class="shade">
+			<div id="pageTitle">ЧТО? ГДЕ? КОГДА? - ОТКРЫТАЯ ЛИГА СТЭНФОРДА</div>
+			<div id="pageSubtitle">Игра 1 (гость Борис Бурда)</div>
+			<img id="chtoGdeKogdaLogo" src="ChtoGdeKogda_Sova_Logo.png"/>			
+			<img id="stanfordLogo" src="stanfordLogo.png"/>
+			
+			<div class="blackboard">
+					<div class="form">
+							<form name="submit-to-google-sheet">
+							<p class="topP">
+									<label class="topLabel">Команда: </label>
+									<input class="topName" id="teamName" name="teamName" type="text"  required/>
+							</p>
+							<p class="topP">
+									<label class="topLabel">емайл: </label>
+									<input class="topName" id="email" name="email" type="email" />
+							</p>
+							<p class="topP">
+									<div id="notificationMessage">&nbsp</div>
+							</p>							
+							<p class="wipeout">
+									<input type="submit" value="Ответить" />
+							</p>
+														<p>
+									<label>Разминка 1: </label>
+									<input id="r1" name="r1" type="text" />
+							</p>
+														<p>
+									<label>Разминка 2: </label>
+									<input id="r2" name="r2" type="text" />
+							</p>
+							<p>
+									<label>Вопрос 1: </label>
+									<input id="q1" name="q1" type="text" />
+							</p>
+							<p>
+									<label>Вопрос 2: </label>
+									<input id="q2" name="q2" type="tel" />
+							</p>
+							<p>
+									<label>Вопрос 3: </label>
+									<input id="q3" name="q3" type="text" />
+							</p>							<p>
+									<label>Вопрос 4: </label>
+									<input id="q4" name="q4" type="text" />
+							</p>
+							<p>
+									<label>Вопрос 5: </label>
+									<input id="q5" name="q5" type="tel" />
+							</p>
+							<p>
+									<label>Вопрос 6: </label>
+									<input id="q6" name="q6" type="text" />
+							</p>
+							<p>
+									<label>Вопрос 7: </label>
+									<input id="q7" name="q7" type="text" />
+							</p>
+							<p>
+									<label>Вопрос 8: </label>
+									<input id="q8" name="q8" type="tel" />
+							</p>
+							<p>
+									<label>Вопрос 9: </label>
+									<input id="q9" name="q9" type="text" />
+							</p>							<p>
+									<label>Вопрос 10: </label>
+									<input id="q10" name="q10" type="text" />
+							</p>
+							<p>
+									<label>Вопрос 11: </label>
+									<input id="q11" name="q11" type="tel" />
+							</p>
+							<p>
+									<label>Вопрос 12: </label>
+									<input id="q12" name="q12" type="text" />
+							</p>
+					</form>
+					</div>
+			</div>
 	</div>
-	<div id="wrapper">
-    <!--<img usemap="#image-map" src="image-map-all.png">
-    <map name="image-map">
-        <area shape="poly" alt="blue" title="blue" onclick="selectRegion('blue')"
-              coords="28,27,283,27,324,101,285,175,27,175">
-        <area shape="poly" alt="yellow" title="yellow" onclick="selectRegion('yellow')"
-              coords="286,27,543,27,583,101,542,176,286,175,324,101">
-        <area shape="poly" alt="pink" title="pink" onclick="selectRegion('pink')"
-              coords="545,28,801,27,840,100,801,175,544,175,582,101">
-        <area shape="poly" alt="orange" title="orange" onclick="selectRegion('orange')"
-              coords="802,27,1096,27,1096,174,802,174,838,101">
-    </map>-->
+</body>
+													      
+													      <script>
+	  
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbx1vZ9jmZdZtpynQ6GNi01a-aZU7b-Ya04SAyS4o6KB77yhXIw/exec'
+  const form = document.forms['submit-to-google-sheet'];
+  // document.getElementById("q1").value="Success!";
+  
 
-      <img id="main-flyer" src="IntellectualCasino_May2018_WEBSITE.jpg" usemap="#image-map">
+  
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+	
+	function displayNotification(msg) {
+		document.getElementById("notificationMessage").innerHTML=msg;
+		setTimeout(function(){
+			document.getElementById("notificationMessage").innerHTML="&nbsp";
+		}, 3000);
+	}
+    
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => displayNotification("Your answer was received!"))
+      .catch(error => console.error('Error!', error.message)); 
+   
 
-      <map name="image-map">
-          <area target="" target="_new" alt="Билеты" title="Билеты" href="https://intellectualcasino.eventbrite.com?discount=EARLYBIRD" coords="113,411,407,507" shape="rect">
-          <area target="" alt="Регистрация Команды" title="Регистрация Команды" href="faq.html#teams" coords="112,532,414,642" shape="rect">
-          <area target="" alt="Инфо Для Зрителей" title="Инфо Для Зрителей" href="faq.html#audience" coords="117,665,412,777" shape="rect">
-          <area target="" alt="Правила Игры" title="Правила Игры" href="faq.html#rules" coords="1466,410,1833,527" shape="rect">
-          <area target="" alt="Дресс Код" title="Дресс Код" href="faq.html#dresscode" coords="1469,560,1842,658" shape="rect">
-          <area target="" alt="Фото Прошлых Игр" title="Фото Прошлых Игр" href="photo/index.html" coords="1457,689,1864,794" shape="rect">
-          <area target="" target="_new" alt="Борис Бурда" title="Борис Бурда" href="https://ru.wikipedia.org/wiki/%D0%91%D1%83%D1%80%D0%B4%D0%B0,_%D0%91%D0%BE%D1%80%D0%B8%D1%81_%D0%9E%D1%81%D0%BA%D0%B0%D1%80%D0%BE%D0%B2%D0%B8%D1%87" coords="1471,166,1764,234" shape="rect">
-           <area target="" target="_new" alt="Интеллектуальное Казино на Фейсбуке" title="Интеллектуальное Казино на Фейсбуке" href="http://www.facebook.com/djwizard" coords="945,244,156" shape="circle">
-          <area target="" target="_new" alt="Джаз Оркестр Фила Лоренса" title="Джаз Оркестр Фила Лоренса" href="http://www.fillorenz.com/" coords="14,163,575,219" shape="rect">
-          <area target="" target="_new" alt="Инна Друзь" title="Инна Друзь" href="https://ru.wikipedia.org/wiki/%D0%94%D1%80%D1%83%D0%B7%D1%8C,_%D0%98%D0%BD%D0%BD%D0%B0_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D0%BD%D0%B0" coords="1481,239,1762,297" shape="rect">
-
-      </map>
-
-
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-    <script src="image-map.js"></script>
-    <script>
-        $(function () {
-            ImageMap('img[usemap]');
-        });
-        function selectRegion(region) {
-            document.querySelector("img").setAttribute('src', 'image-map-' + region + '.png');
-        }
-        function regionClicked(region) {
-          alert("JD: region clicked is = " + region);
-        }
-    </script>
-    <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-36251023-1']);
-      _gaq.push(['_setDomainName', 'jqueryscript.net']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-
-    </script>
-	</div>
-  </body>
+  })
+	
+	
+</script>
+													      
 </html>
