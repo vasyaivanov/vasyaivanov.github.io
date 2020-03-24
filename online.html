@@ -1,7 +1,7 @@
 <form name="submit-to-google-sheet">
-  <input name="teamName" id="teamName" type="text" placeholder="Team Name" required><br> 
-  <input name="q1" id="q1" type="text" placeholder="Ответ на 1й вопрос"><br>
-  <input name="q2" type="q2" placeholder="Ответ на 2й вопрос"><br>
+  <input name="teamName" type="text" placeholder="Team Name" required> 
+  <input name="firstName" type="text" placeholder="First Name">
+  <input name="lastName" type="text" placeholder="Last Name">
   <button type="submit">Send</button>
 </form>
 
@@ -10,7 +10,7 @@
   const form = document.forms['submit-to-google-sheet']
 
   form.addEventListener('submit', e => {
-    document.getElementById("q1")="Success";
+    document.getElementByName("firstName")="Success";
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => console.log('Success!', response))
